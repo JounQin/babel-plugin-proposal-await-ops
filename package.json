@@ -5,7 +5,7 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
-    "rebuild": "rm -rf babel-parser && cp -r babel/packages/babel-parser/src babel-parser",
+    "rebuild": "rm -rf babel-generator && cp -r babel/packages/babel-generator/src babel-generator",
     "test": "jest"
   },
   "devDependencies": {
