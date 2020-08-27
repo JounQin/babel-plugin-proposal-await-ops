@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-proposal-await-ops",
+  "version": "0.0.1",
+  "repository": "git@github.com:JounQin/babel-plugin-proposal-await-ops.git",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "scripts": {
+    "rebuild": "rm -rf babel-parser && cp -r babel/packages/babel-parser/src babel-parser",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-flow": "^7.10.4",
+    "babel-plugin-transform-charcodes": "^0.2.0",
+    "charcodes": "^0.2.0",
+    "jest": "^26.4.2"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/tests"
+    ]
+  }
+}
