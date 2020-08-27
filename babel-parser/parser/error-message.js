@@ -176,6 +176,7 @@ export const ErrorMessages = Object.freeze({
   UnexpectedToken: "Unexpected token '%0'",
   UnexpectedTokenUnaryExponentiation:
     "Illegal expression. Wrap left hand side or entire exponentiation in parentheses.",
+  UnexpectedAwaitOperation: "Unexpected await operation '%0', only `all`, `race`, `allSettled` and `any` are supported",
   UnsupportedBind: "Binding should be performed on object property.",
   UnsupportedDecoratorExport:
     "A decorated export must export a class declaration",

@@ -382,6 +382,7 @@ export type YieldExpression = NodeBase & {
 export type AwaitExpression = NodeBase & {
   type: "AwaitExpression",
   argument: ?Expression,
+  operation?: "all" | "race" | "allSettled" | "any";
 };
 
 export type ArrayExpression = NodeBase & {

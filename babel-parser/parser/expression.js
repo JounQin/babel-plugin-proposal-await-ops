@@ -51,6 +51,8 @@ import {
 } from "../util/production-parameter";
 import { Errors } from "./error";
 
+const AWAIT_EXPRESSIONS = ['all', 'race', 'allSettled', 'any'];
+
 export default class ExpressionParser extends LValParser {
   // Forward-declaration: defined in statement.js
   /*::
@@ -2418,8 +2420,18 @@ export default class ExpressionParser extends LValParser {
     } else if (this.state.awaitPos === -1) {
       this.state.awaitPos = node.start;
     }
+
     if (this.eat(tt.star)) {
       this.raise(node.start, Errors.ObsoleteAwaitStar);
+    }
+
+    if(this.hasPlugin('await-ops') && this.eat(tt.dot)) {
+      const id = this.parseIdentifier().name;
+      if (AWAIT_EXPRESSIONS.includes(id)) {
+        node.operation = id;
+      } else {
+        this.raise(node.start, Errors.UnexpectedAwaitOperation, id);
+      }
     }
 
     if (!this.scope.inFunction && !this.options.allowAwaitOutsideFunction) {

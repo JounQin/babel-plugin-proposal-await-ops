@@ -1,10 +1,34 @@
+import { declare } from "@babel/helper-plugin-utils";
+
 import { parse } from "../babel-parser";
 
-export default function babelPluginProposalAwaitOps(api, options) {
+import syntax from "./syntax";
+
+export default declare((api) => {
   api.assertVersion(7);
+
+  const t = api.types;
+
   return {
-    parserOverride(code, options) {
-      return parse(code, options);
+    name: "transform-await-ops",
+    inherits: syntax,
+    parserOverride: parse,
+    visitor: {
+      AwaitExpression({ node }) {
+        if (!node.operation) {
+          return;
+        }
+
+        node.argument = t.callExpression(
+          t.memberExpression(
+            t.identifier("Promise"),
+            t.identifier(node.operation)
+          ),
+          [node.argument]
+        );
+
+        delete node.operation;
+      },
     },
   };
-}
+});
