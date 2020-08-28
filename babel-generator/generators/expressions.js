@@ -163,7 +163,7 @@ function buildYieldAwait(keyword: string) {
 
     if (node.operation) {
       this.token(".");
-      this.token(node.operation);
+      this.token(node.operation.name);
     }
 
     if (node.argument) {

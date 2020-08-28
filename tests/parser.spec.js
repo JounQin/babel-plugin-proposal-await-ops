@@ -41,7 +41,23 @@ describe("parser", () => {
             "line": 1,
           },
         },
-        "operation": "all",
+        "operation": Node {
+          "end": 9,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 9,
+              "line": 1,
+            },
+            "identifierName": "all",
+            "start": Position {
+              "column": 6,
+              "line": 1,
+            },
+          },
+          "name": "all",
+          "start": 6,
+          "type": "Identifier",
+        },
         "start": 0,
         "type": "AwaitExpression",
       }
@@ -81,7 +97,23 @@ describe("parser", () => {
             "line": 1,
           },
         },
-        "operation": "race",
+        "operation": Node {
+          "end": 10,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 10,
+              "line": 1,
+            },
+            "identifierName": "race",
+            "start": Position {
+              "column": 6,
+              "line": 1,
+            },
+          },
+          "name": "race",
+          "start": 6,
+          "type": "Identifier",
+        },
         "start": 0,
         "type": "AwaitExpression",
       }

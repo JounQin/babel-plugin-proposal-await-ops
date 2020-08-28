@@ -2426,11 +2426,11 @@ export default class ExpressionParser extends LValParser {
     }
 
     if(this.hasPlugin('await-ops') && this.eat(tt.dot)) {
-      const id = this.parseIdentifier().name;
-      if (AWAIT_EXPRESSIONS.includes(id)) {
+      const id = this.parseIdentifier();
+      if (AWAIT_EXPRESSIONS.includes(id.name)) {
         node.operation = id;
       } else {
-        this.raise(node.start, Errors.UnexpectedAwaitOperation, id);
+        this.raise(node.start, Errors.UnexpectedAwaitOperation, id.name);
       }
     }
 

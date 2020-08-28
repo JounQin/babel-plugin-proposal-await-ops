@@ -22,7 +22,7 @@ export default declare((api) => {
         node.argument = t.callExpression(
           t.memberExpression(
             t.identifier("Promise"),
-            t.identifier(node.operation)
+            node.operation
           ),
           [node.argument]
         );
